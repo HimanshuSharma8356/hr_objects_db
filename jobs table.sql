@@ -1,0 +1,160 @@
+-- use hr_objects_db;
+
+-- 1} COMMENT ON TABLE jobs  
+-- IS 'jobs table with job titles and salary ranges. Contains 19 
+-- rows. References with employees and job_history table.'
+
+-- 2} COMMENT ON COLUMN jobs.job_id  
+-- IS 'Primary key of jobs table.'
+
+-- 3}COMMENT ON COLUMN jobs.job_title  
+-- IS 'A not null column that shows job title, e.g. AD_VP, 
+-- FI_ACCOUNTANT'
+
+-- 4} COMMENT ON COLUMN jobs.min_salary  
+-- IS 'Minimum salary for a job title.'
+
+-- 5} COMMENT ON COLUMN jobs.max_salary  
+-- IS 'Maximum salary for a job title'
+
+-- CREATE TABLE jobs  
+--     ( job_id         VARCHAR(10)  
+--       		        PRIMARY KEY 
+--     , job_title      VARCHAR(35)  
+-- 	              NOT NULL  
+--     , min_salary     int  
+--     , max_salary     int  
+--     )
+--  desc jobs;
+-- INSERT INTO jobs VALUES   
+--         ( 'AD_PRES'  
+--         , 'President'  
+--         , 20080  
+--         , 40000  
+--         );  
+-- INSERT INTO jobs VALUES   
+--         ( 'AD_VP'  
+--         , 'Administration Vice President'  
+--         , 15000  
+--         , 30000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'AD_ASST'  
+--         , 'Administration Assistant'  
+--         , 3000  
+--         , 6000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'FI_MGR'  
+--         , 'Finance Manager'  
+--         , 8200  
+--         , 16000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'FI_ACCOUNT'  
+--         , 'Accountant'  
+--         , 4200  
+--         , 9000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'AC_MGR'  
+--         , 'Accounting Manager'  
+--         , 8200  
+--         , 16000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'AC_ACCOUNT'  
+--         , 'Public Accountant'  
+--         , 4200  
+--         , 9000  
+--         ); 
+--         
+-- INSERT INTO jobs VALUES   
+--         ( 'SA_MAN'  
+--         , 'Sales Manager'  
+--         , 10000  
+--         , 20080  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'SA_REP'  
+--         , 'Sales Representative'  
+--         , 6000  
+--         , 12008  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'PU_MAN'  
+--         , 'Purchasing Manager'  
+--         , 8000  
+--         , 15000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'PU_CLERK'  
+--         , 'Purchasing Clerk'  
+--         , 2500  
+--         , 5500  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'ST_MAN'  
+--         , 'Stock Manager'  
+--         , 5500  
+--         , 8500  
+--         ); 
+--         
+-- INSERT INTO jobs VALUES   
+--         ( 'ST_CLERK'  
+--         , 'Stock Clerk'  
+--         , 2008  
+--         , 5000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'SH_CLERK'  
+--         , 'Shipping Clerk'  
+--         , 2500  
+--         , 5500  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'IT_PROG'  
+--         , 'Programmer'  
+--         , 4000  
+--         , 10000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'MK_MAN'  
+--         , 'Marketing Manager'  
+--         , 9000  
+--         , 15000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'MK_REP'  
+--         , 'Marketing Representative'  
+--         , 4000  
+--         , 9000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'HR_REP'  
+--         , 'Human Resources Representative'  
+--         , 4000  
+--         , 9000  
+--         );  
+--   
+-- INSERT INTO jobs VALUES   
+--         ( 'PR_REP'  
+--         , 'Public Relations Representative'  
+--         , 4500  
+--         , 10500  
+--         );  
+-- select * from jobs;

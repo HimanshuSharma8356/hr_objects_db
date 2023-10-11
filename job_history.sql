@@ -1,0 +1,134 @@
+--  use hr_objects_db;
+
+-- 1} COMMENT ON TABLE job_history  
+-- IS 'Table that stores job history of the employees. If an 
+-- employee  changes departments within the job or changes jobs 
+-- within the department,  new rows get inserted into this table 
+-- with old job information of the employee. Contains a complex 
+-- primary key: employee_id+start_date. Contains 25 rows. 
+-- References with jobs, employees, and departments tables.'
+
+-- 2} COMMENT ON COLUMN job_history.employee_id  
+-- IS 'A not null column in the complex primary key employee_id+start_date.
+-- Foreign key to employee_id column of the employee table'
+
+-- 3} COMMENT ON COLUMN job_history.start_date  
+-- IS 'A not null column in the complex primary key employee_id+start_date.
+-- Must be less than the end_date of the job_history table. 
+-- (enforced by constraint jhist_date_interval)'
+
+-- 4} COMMENT ON COLUMN job_history.end_date  
+-- IS 'Last day of the employee in this job role. A not null 
+-- column. Must be greater than the start_date of the job_history 
+-- table.  (enforced by constraint jhist_date_interval)'
+
+-- 5} COMMENT ON COLUMN job_history.job_id  
+-- IS 'Job role in which the employee worked in the past; foreign 
+-- key to job_id column in the jobs table. A not null column.'
+
+-- 6} COMMENT ON COLUMN job_history.department_id 
+-- IS 'Department id in which the employee worked in the past; 
+-- foreign key to deparment_id column in the departments table'
+
+-- CREATE TABLE job_history  
+--     ( employee_id   int 
+-- 	            NOT NULL  
+--     ,               CONSTRAINT jhist_emp_fk  
+--                        FOREIGN KEY (employee_id)  
+--                        REFERENCES employees (employee_id)  
+--     , start_date    DATE  
+-- 	              NOT NULL  
+--     , end_date      DATE  
+-- 	              NOT NULL  
+--     , job_id        VARCHAR(10)  
+-- 	              NOT NULL  
+--     ,               CONSTRAINT jhist_job_fk  
+--                        FOREIGN KEY (job_id)  
+--                        REFERENCES jobs (job_id) 
+--     , department_id int  
+--     ,               CONSTRAINT jhist_dept_fk  
+--                        FOREIGN KEY (department_id)  
+--                        REFERENCES departments (department_id)
+--     , CONSTRAINT    jhist_emp_id_st_date_pk  
+--                        PRIMARY KEY (employee_id, start_date) 
+--     , CONSTRAINT    jhist_date_interval  
+--                        CHECK (end_date > start_date)  
+--     );
+-- desc job_history;
+
+-- INSERT INTO job_history  
+-- VALUES (102  
+--        , '2001-01-13'
+--        , '2006-07-24'
+--        , 'IT_PROG'  
+--        , 60);  
+--   
+-- INSERT INTO job_history  
+-- VALUES (101  
+--        , '1997-09-21'
+--        , '2001-10-27'
+--        , 'AC_ACCOUNT'  
+--        , 110);  
+--   
+-- INSERT INTO job_history  
+-- VALUES (101  
+--        , '2001-10-28'
+--        , '2005-03-15'
+--        , 'AC_MGR'  
+--        , 110);  
+--   
+-- INSERT INTO job_history  
+-- VALUES (201  
+--        , '2004-02-17'
+--        , '2007-12-19' 
+--        , 'MK_REP'  
+--        , 20);  
+--   
+-- INSERT INTO job_history  
+-- VALUES  (114  
+--         , '2006-03-24'
+--         , '2007-12-31'
+--         , 'ST_CLERK'  
+--         , 50  
+--         );  
+--   
+-- INSERT INTO job_history  
+-- VALUES  (122  
+--         , '2007-01-01'
+--         , '2007-12-31'
+--         , 'ST_CLERK'  
+--         , 50  
+--         );  
+--   
+-- INSERT INTO job_history  
+-- VALUES  (200  
+--         , '1996-06-19'
+--         , '2023-09-23'
+--         , 'AD_ASST'  
+--         , 90  
+--         );  
+--   
+-- INSERT INTO job_history  
+-- VALUES  (176  
+--         , '2006-03-24'
+--         , '2006-12-31'
+--         , 'SA_REP'  
+--         , 80  
+--         );  
+--   
+-- INSERT INTO job_history  
+-- VALUES  (176  
+--         , '2007-01-01'
+--         , '2007-12-31'
+--         , 'SA_MAN'  
+--         , 80  
+--         );  
+--   
+-- INSERT INTO job_history  
+-- VALUES  (200  
+--         , '2002-07-01'
+--         , '2006-12-31'
+--         , 'AC_ACCOUNT'  
+--         , 90  
+--         ); 
+-- select * from job_history ;
